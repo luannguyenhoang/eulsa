@@ -17,6 +17,28 @@
   padding-bottom: 8px;
 }
 
+.post__main ul,
+.post__main ol {
+  list-style-position: outside;
+  padding-left: 1.5em;
+  margin-left: 0;
+}
+
+.post__main ul {
+  list-style-type: disc; /* dấu chấm tròn */
+}
+
+.post__main ol {
+  list-style-type: decimal; /* số thứ tự */
+}
+
+.post__main ul li,
+.post__main ol li {
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+
 .post__main h1 {
   font-size: 1.7rem;
 }

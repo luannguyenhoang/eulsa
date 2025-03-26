@@ -139,3 +139,64 @@ export const CardRecentPosts = ({
     </div>
   );
 };
+
+
+
+
+export const CardBlogtb = ({
+  title,
+  desc,
+  tag,
+  image,
+  path,
+  bgTag,
+  date,
+}: {
+  title: string;
+  desc: string;
+  tag: string;
+  image?: string;
+  path?: string;
+  bgTag?: string;
+  date?: string;
+}) => {
+  return (
+    <Link
+      href={path ?? "#"}
+      className="flex flex-col sm:flex-row justify-between gap-4 group"
+    >
+      <div className="flex-1 relative">
+        <div className="relative overflow-hidden w-full sm:w-5/4 z-10 ">
+          <Image
+            width={365}
+            height={190}
+            src={image || "/blog.jpeg"}
+            alt={title || "image"}
+            className="object-cover w-full h-auto"
+          />
+
+          <div className="absolute bottom-0 left-0">
+            <span
+              className={`text-white text-sm px-2 py-1 inline-block whitespace-nowrap bg-green-500`}
+              style={{ backgroundColor: bgTag || "#38a169" }}
+            >
+              {tag}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex-1 flex flex-col justify-center mt-5 sm:mt-0">
+        <h4
+          className="text-base lg:text-sm font-semibold leading-tight text-black group-hover:text-red-500 transition-all duration-300 line-clamp-2"
+          dangerouslySetInnerHTML={{ __html: clean(title) }}
+        ></h4>
+
+        <div className="flex gap-2 text-sm font-medium my-2">
+          <span className="font-semibold">Admin</span>
+          <span>{date}</span>
+        </div>
+      </div>
+    </Link>
+  );
+};

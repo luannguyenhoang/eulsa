@@ -3,11 +3,14 @@ import { FormWrapper } from "@/components/FormWrapper";
 interface RegistrationSectionProps {
   title: string;
   description: string;
+  backgroundImage:string
 }
-export const RegistrationSection = ({ title, description }: RegistrationSectionProps) => {
+export const RegistrationSection = ({ title, description, backgroundImage }: RegistrationSectionProps) => {
   return (
     <div className="relative bg-cover bg-center  flex items-center justify-center p-4"
-      style={{ backgroundImage: "url('/assets/2.webp')" }}>
+      style={{
+        backgroundImage: `url(${backgroundImage || "/assets/2.webp"})`
+      }}>
       <div className="container max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-center">
         <div className="bg-white bg-opacity-80 p-6 rounded-lg shadow-lg md:w-1/2">
           <h2 className="text-2xl font-bold text-blue-800">{title}</h2>

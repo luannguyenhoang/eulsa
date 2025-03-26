@@ -17,8 +17,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
     threshold: 0.1,
     triggerOnce: true
   });
-
-  const [, setScrollPosition] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [showCTA, setShowCTA] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,13 +31,33 @@ const Layout = ({ children }: { children: ReactNode }) => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = window.scrollY;
+      setScrollPosition(position);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (scrollPosition > 500) {
+      setShowCTA(true);
+    } else {
+      setShowCTA(false);
+    }
+  }, [scrollPosition]);
   return (
     <>
       <Header />
       <main className="bg-white ">
         {children}
         <div ref={ref} className="h-[1px]" />
-        {/* <CTA /> */}
+        {showCTA && (
+        <CTA />
+      )}
       </main>
       <BackToTop />
       {inView && <Footer />}

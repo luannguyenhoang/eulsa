@@ -11,8 +11,6 @@ export default async function handler(
   //lấy dữ liệu form từ wordpress
   const type = req?.query?.type || "";
   const api_url = process.env.API_URL || "";
-  const hasSSL = process.env.NEXT_PUBLIC_HAS_SSL || "true";
-  if (hasSSL === "false") process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
 
   let contentPage: any[] = [];
 

@@ -12,7 +12,7 @@ export const TinTuc = () => {
   const [posts, setPosts] = useState<any[]>([]);
   const [currentCategory, setCurrentCategory] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
-  const postsPerPage = 8;
+  const postsPerPage = 9;
 
   useEffect(() => {
     setCurrentCategory(searchParams.get("category"));

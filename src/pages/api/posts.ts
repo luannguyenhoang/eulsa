@@ -29,7 +29,7 @@ export default async function handler(
   let totalPosts = "0";
 
   try {
-    const endPoint = `${api_url}/posts?_embed&per_page=10&status=publish&page=${page}`;
+    const endPoint = `${api_url}/posts?_embed&per_page=100&status=publish&page=${page}`;
     const response = await fetchAuth({ url: endPoint, revalidate: 1 });
     if (!response.ok) {
       throw new Error(`Posts fetch failed with status: ${response.statusText}`);
