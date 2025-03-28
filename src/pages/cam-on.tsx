@@ -1,6 +1,6 @@
 "server only";
 
-import { DangkyTc } from "@/components/dang-ky-thanh-cong";
+import DangkyTc from "@/components/dang-ky-thanh-cong";
 import { fetchSeo } from "@/utils/seo";
 import { replaceSeoRM } from "@/utils/seoRankMath";
 import ReactHtmlParser from "html-react-parser";
