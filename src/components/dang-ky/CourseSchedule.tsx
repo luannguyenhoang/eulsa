@@ -25,18 +25,12 @@ export const CourseSchedule = (section_1: any) => {
         </div>
         <div className="space-y-6">
         <CountdownTimer
-            title={section_1?.section_1?.list_1?.title || "Tại Hà Nội"}
-            day={parseInt(section_1?.section_1?.list_1?.label_2) || 10}
-            hours={parseInt(section_1?.section_1?.list_1?.label_3) || 12}
-            minutes={parseInt(section_1?.section_1?.list_1?.label_4) || 30}
-            seconds={parseInt(section_1?.section_1?.list_1?.label_5) || 0}
+            title={section_1?.section_1?.title_1 || "Khai giảng tại Hà Nội"}
+            targetDate={section_1?.section_1?.target_date_1 || "00-00-00"}
           />
           <CountdownTimer
-            title={section_1?.section_1?.list_2?.title || "Tại TP Hồ Chí Minh"}
-            day={parseInt(section_1?.section_1?.list_2?.label_2) || 8}
-            hours={parseInt(section_1?.section_1?.list_2?.label_3) || 15}
-            minutes={parseInt(section_1?.section_1?.list_2?.label_4) || 45}
-            seconds={parseInt(section_1?.section_1?.list_2?.label_5) || 10}
+            title={section_1?.section_1?.title_2 || "Khai giảng tại HCM"}
+            targetDate={section_1?.section_1?.target_date_2 || "00-00-00"}
           />
         </div>
       </div>

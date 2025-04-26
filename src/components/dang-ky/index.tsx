@@ -24,25 +24,25 @@ export const Dangky = () => {
         };
         getHomeContent();
     }, []);
-    
+
     useEffect(() => {
         const getPageContent = async () => {
-          try {
-            const res = await fetch(`/api/content-page/?type=trang-chu`, {
-              next: { revalidate: 3 },
-            });
-            const data = await res.json();
-            setPageContent(data?.contentPage[0]);
-          } catch (error) {
-            console.error("Error fetching home content:", error);
-          }
+            try {
+                const res = await fetch(`/api/content-page/?type=trang-chu`, {
+                    next: { revalidate: 3 },
+                });
+                const data = await res.json();
+                setPageContent(data?.contentPage[0]);
+            } catch (error) {
+                console.error("Error fetching home content:", error);
+            }
         };
         getPageContent();
-      }, []);
-      useEffect(() => {
+    }, []);
+    useEffect(() => {
         const getPageContents = async () => {
             try {
-                const res = await fetch(`/api/content-page/?type=lich-khai-giang`, {
+                const res = await fetch(`/api/content-page/?type=lkg`, {
                     next: { revalidate: 3 }
                 });
                 const data = await res.json();
@@ -57,7 +57,7 @@ export const Dangky = () => {
     return (
         <>
             <RegistrationForm section_1={homeContent?.acf?.section_1} />
-            <CourseSchedule section_1={pageContents?.acf?.section_1} />
+            <CourseSchedule section_1={pageContents?.acf} />
             <TestimonialsSlider section_8={pageContent?.acf?.section_8} />
             <div className="container max-w-7xl mx-auto pb-10">
                 <FeatureList section_3={pageContent?.acf?.section_3} />

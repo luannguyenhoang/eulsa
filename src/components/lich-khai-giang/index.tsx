@@ -10,7 +10,7 @@ export const Lkg = () => {
     useEffect(() => {
         const getHomeContent = async () => {
             try {
-                const res = await fetch(`/api/content-page/?type=lich-khai-giang`, {
+                const res = await fetch(`/api/content-page/?type=lkg`, {
                     next: { revalidate: 3 }
                 });
                 const data = await res.json();
@@ -37,7 +37,7 @@ export const Lkg = () => {
         getPageContent();
     }, []);
     return (
-        <><Lkgs section_1={homeContent?.acf?.section_1}/>
+        <><Lkgs section_1={homeContent?.acf }/>
             <Category section_4={pageContent?.acf?.section_4} />
             <TestimonialsSlider section_8={pageContent?.acf?.section_8}/>
         </>
