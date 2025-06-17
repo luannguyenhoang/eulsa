@@ -1,7 +1,6 @@
-import Image from "next/image";
-import { FormWrapper } from "../FormWrapper";
-import Link from "next/link";
 import { HomeIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export const HeroSection = (list: any) => {
 
@@ -26,7 +25,7 @@ export const HeroSection = (list: any) => {
       <div
         className="h-[300px] flex items-center justify-center relative bg-cover bg-center text-white"
         style={{
-          backgroundImage: "url('/assets/Group-128.png')",
+          backgroundImage: `url('${list?.list?.list_1?.backgroundImage || "/assets/Group-128.png"}')`,
         }}
       >
         <div className="absolute inset-0 bg-black opacity-70"></div>
@@ -86,10 +85,6 @@ export const HeroSection = (list: any) => {
             <p className="text-[#1657A7] font-bold whitespace-pre-line">
               {list?.list?.list_2?.description || `Đại học hệ đào tạo từ xa (Distance learning) là hình thức học trong đó người học và người dạy không ở cùng một địa điểm. Người học có thể học mọi lúc, mọi nơi và vào bất kỳ thời gian nào, chỉ cần một chiếc máy tính có kết nối internet. Giảng viên sẽ giảng dạy thông qua nền tảng đào tạo e-learning`}
             </p>
-            <div className="bg-gray-50 p-6 rounded-lg border">
-              <h3 className="text-xl font-bold text-center mb-4">NHẬN TƯ VẤN KHOÁ HỌC?</h3>
-              <FormWrapper type="form-main" />
-            </div>
           </div>
         </div>
       </div>

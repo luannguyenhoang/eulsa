@@ -15,11 +15,11 @@ export const HeroSection = (banner: any) => {
       image: banner?.banner?.image_1 || "/assets/image_h2-768x513.jpg"
     },
     {
-      id: "1",
+      id: "2",
       image: banner?.banner?.image_2 || "/assets/image_h2-768x513.jpg"
     },
     {
-      id: "1",
+      id: "3",
       image: banner?.banner?.image_3 || "/assets/image_h2-768x513.jpg"
     }
   ];

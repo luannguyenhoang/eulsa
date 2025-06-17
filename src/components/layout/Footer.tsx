@@ -1,9 +1,9 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Facebook, MessageCircle, Instagram, Youtube } from "lucide-react"
+import { Facebook, Instagram, Youtube } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import { BsThreads } from "react-icons/bs";
 import { FaTiktok } from "react-icons/fa";
-
 export const Footer = () => {
   const [homeContent, setHomeContent] = useState<any>(null);
   useEffect(() => {
@@ -23,9 +23,11 @@ export const Footer = () => {
   const footer = homeContent?.acf.footer
   const socialLinks = [
     { icon: Facebook, href: footer?.list_1?.link_1 || "https://www.facebook.com/daihoctuxa.eulsa" },
-    { icon: FaTiktok, href: footer?.list_1?.link_2 || " https://www.tiktok.com/@ulsa.elearning" },
+    { icon: FaTiktok, href: footer?.list_1?.link_2 || "https://www.tiktok.com/@ulsa.elearning" },
     { icon: Youtube, href: footer?.list_1?.link_3 || "#" },
     { icon: Instagram, href: footer?.list_1?.link_4 || "#" },
+    { icon: BsThreads , href: footer?.list_1?.link_5 || "#" },
+    
   ]
   return (
     <footer className="bg-[#1e56a0] text-white py-8">

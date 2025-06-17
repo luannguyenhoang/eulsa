@@ -54,47 +54,36 @@ const Section = ({
 );
 
 export const LatestNews = () => {
-  const [posts, setPosts] = useState<any[]>([]);
+  const [news, setNews] = useState<any[]>([]);
+  const [announcements, setAnnouncements] = useState<any[]>([]);
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchByCategory = async (categoryId: number, setter: (data: any[]) => void) => {
       try {
-        const postResponse = await fetch(`/api/posts?page=1`);
-        if (!postResponse.ok) {
-          throw new Error(`Failed to fetch posts: ${postResponse.statusText}`);
-        }
-        const data = await postResponse.json();
-        setPosts(data.posts || []);
+        const res = await fetch(`/api/posts?page=1&per_page=6&category=${categoryId}`);
+        if (!res.ok) throw new Error(`Failed to fetch category ${categoryId}`);
+        const data = await res.json();
+        setter(data.posts || []);
       } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.error(`Error fetching category ${categoryId}:`, error);
       }
     };
 
-    fetchPosts();
+    // Tin tức: category_id = 2 | Thông báo: category_id = 1
+    fetchByCategory(2, setNews);
+    fetchByCategory(1, setAnnouncements);
   }, []);
-
-  const news = posts.filter((post) => post?.categories?.includes(2));
-  const announcements = posts.filter((post) => post?.categories?.includes(1));
 
   return (
     <div className="py-[70px] max-w-7xl mx-auto px-4">
       <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-10 gap-0">
         <div className="lg:col-span-2 mb-[30px]">
-          <Section
-            title="Tin tức"
-            posts={news}
-            type="blog" 
-          />
+          <Section title="Tin tức" posts={news} type="blog" />
         </div>
         <div className="lg:col-span-1">
-          <Section
-            title="Thông báo"
-            posts={announcements}
-            type="tb" 
-          />
+          <Section title="Thông báo" posts={announcements} type="tb" />
         </div>
       </div>
     </div>
   );
 };
-
