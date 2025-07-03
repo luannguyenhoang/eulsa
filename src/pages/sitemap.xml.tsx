@@ -42,7 +42,7 @@ export const getServerSideProps = async ({ res }: { res: NextApiResponse }) => {
     while (true) {
       const response = await fetchAuth({
         url: `${API_URL}/posts?_fields=slug&per_page=${PER_PAGE}&status=publish&page=${page}`,
-        revalidate: 3600,
+        revalidate: 3600
       });
 
       const data = await response.json();

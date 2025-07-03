@@ -40,7 +40,9 @@ export const TinTuc = () => {
     const fetchPosts = async () => {
       try {
         setLoading(true);
-        const categoryId = categories.find((cat) => cat.slug === currentCategory)?.id;
+        const categoryId = categories.find(
+          (cat) => cat.slug === currentCategory
+        )?.id;
         const url = `/api/posts?page=${currentPage + 1}&per_page=${postsPerPage}${
           categoryId ? `&category=${categoryId}` : ""
         }`;
@@ -68,9 +70,12 @@ export const TinTuc = () => {
       <CategoryNavigation categories={categories} />
       <div className="grid lg:grid-cols-1 mb-4">
         <div className="lg:col-span-2 space-y-8">
-          {loading
-            ? <SkeletonCardBlog large />
-            : posts.slice(0, 1).map((post, index) => (
+          {loading ? (
+            <SkeletonCardBlog large />
+          ) : (
+            posts
+              .slice(0, 1)
+              .map((post, index) => (
                 <CardBlogs
                   key={index}
                   title={clean(post?.title) || ""}
@@ -81,23 +86,28 @@ export const TinTuc = () => {
                   desc={clean(post.excerpt) || ""}
                   category={post?.category}
                 />
-              ))}
+              ))
+          )}
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-[10px] lg:mt-[40px]">
           {loading
-            ? Array.from({ length: 6 }).map((_, i) => <SkeletonCardBlog key={i} />)
-            : posts.slice(1).map((post, index) => (
-                <CardBlog
-                  key={index}
-                  title={clean(post?.title) || ""}
-                  image={post?.featured_image || "/assets/blog.jpeg"}
-                  tag={post?.category}
-                  path={`/${post?.slug}`}
-                  date={post?.date ? formatDate(post.date) : ""}
-                  desc={clean(post.excerpt) || ""}
-                  category={post?.category}
-                />
-              ))}
+            ? Array.from({ length: 6 }).map((_, i) => (
+                <SkeletonCardBlog key={i} />
+              ))
+            : posts
+                .slice(1)
+                .map((post, index) => (
+                  <CardBlog
+                    key={index}
+                    title={clean(post?.title) || ""}
+                    image={post?.featured_image || "/assets/blog.jpeg"}
+                    tag={post?.category}
+                    path={`/${post?.slug}`}
+                    date={post?.date ? formatDate(post.date) : ""}
+                    desc={clean(post.excerpt) || ""}
+                    category={post?.category}
+                  />
+                ))}
         </div>
       </div>
       {!loading && (

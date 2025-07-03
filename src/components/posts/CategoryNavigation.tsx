@@ -34,18 +34,19 @@ export const CategoryNavigation = ({ categories }: CategoryNavigationProps) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((category) => {
           const isActive = currentCategory === category.slug;
-          const imageUrl = extractImageUrl(category.description || "") || "/assets/blog.jpeg";
+          const imageUrl =
+            extractImageUrl(category.description || "") || "/assets/blog.jpeg";
 
           return (
             <Link
               key={category.slug}
               href={{
                 pathname: "/tin-tuc",
-                query: { category: category.slug },
+                query: { category: category.slug }
               }}
               className={cn(
                 "relative group cursor-pointer block",
-                isActive && "ring-2 ring-primary ring-offset-2 rounded-lg",
+                isActive && "ring-2 ring-primary ring-offset-2 rounded-lg"
               )}
             >
               <div className="overflow-hidden rounded-lg">
@@ -59,8 +60,12 @@ export const CategoryNavigation = ({ categories }: CategoryNavigationProps) => {
               </div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center bg-white/80 px-6 py-3 rounded-lg">
-                  <h2 className="text-2xl font-bold text-[#1657A7]">{category.name}</h2>
-                  <p className="text-sm text-muted-foreground mt-1">({category.count})</p>
+                  <h2 className="text-2xl font-bold text-[#1657A7]">
+                    {category.name}
+                  </h2>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    ({category.count})
+                  </p>
                 </div>
               </div>
             </Link>

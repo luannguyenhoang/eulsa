@@ -3,7 +3,7 @@ const token = process.env.TOKEN;
 export const fetchAuth = ({
   url,
   method,
-  revalidate,
+  revalidate
 }: {
   url: string;
   method?: "PUT" | "PATH";
@@ -12,8 +12,8 @@ export const fetchAuth = ({
   return fetch(url, {
     method: method || "GET",
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`
     },
-    next: { revalidate },
+    next: { revalidate }
   });
 };

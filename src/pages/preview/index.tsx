@@ -7,7 +7,7 @@ const DraftPosts = dynamic(() =>
 const Page = () => {
   return (
     <>
-        <DraftPosts />
+      <DraftPosts />
     </>
   );
 };

@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 // CountdownTimer Component
 export const CountdownTimer = ({
   title,
-  targetDate,
+  targetDate
 }: {
   title: string;
   targetDate: string;
@@ -24,7 +24,7 @@ export const CountdownTimer = ({
       days: Math.floor(diff / (1000 * 60 * 60 * 24)),
       hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
       minutes: Math.floor((diff / (1000 * 60)) % 60),
-      seconds: Math.floor((diff / 1000) % 60),
+      seconds: Math.floor((diff / 1000) % 60)
     };
   };
 
@@ -47,26 +47,32 @@ export const CountdownTimer = ({
     <div className="bg-[#1657A7] p-6 rounded-lg text-white mb-4">
       <h3 className="text-red-500 text-2xl font-bold mb-2">{title}</h3>
       <p className="text-lg mb-4">
-        📅 Sự kiện diễn ra vào: <span>
+        📅 Sự kiện diễn ra vào:{" "}
+        <span>
           {target.toLocaleDateString("vi-VN", {
             day: "2-digit",
             month: "long",
-            year: "numeric",
+            year: "numeric"
             // hour: "2-digit",
             // minute: "2-digit",
             // second: "2-digit",
-          })}</span>
-
+          })}
+        </span>
       </p>
       <div className="grid grid-cols-4 gap-4">
         {[
           { value: timeLeft.days, label: "Ngày" },
           { value: timeLeft.hours, label: "Giờ" },
           { value: timeLeft.minutes, label: "Phút" },
-          { value: timeLeft.seconds, label: "Giây" },
+          { value: timeLeft.seconds, label: "Giây" }
         ].map((item) => (
-          <div key={item.label} className="border border-red-500 rounded p-2 text-center">
-            <div className="text-2xl font-bold">{String(item.value).padStart(2, "0")}</div>
+          <div
+            key={item.label}
+            className="border border-red-500 rounded p-2 text-center"
+          >
+            <div className="text-2xl font-bold">
+              {String(item.value).padStart(2, "0")}
+            </div>
             <div className="text-sm">{item.label}</div>
           </div>
         ))}

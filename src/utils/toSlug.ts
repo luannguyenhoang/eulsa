@@ -1,6 +1,6 @@
 export const toSlug = ({
   type = "unsigned",
-  input,
+  input
 }: {
   type?: "unsigned" | "signed";
   input: string;

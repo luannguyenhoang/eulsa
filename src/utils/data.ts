@@ -3,11 +3,10 @@ export interface CourseLayoutProps {
   title: string;
   description: string;
   featuredImage: string;
-  title_1:string,
-  title_2:string,
-  title_3:string
+  title_1: string;
+  title_2: string;
+  title_3: string;
   courseDetails: {
-   
     description: string;
     learningPoints: string[];
   };
@@ -25,9 +24,9 @@ export interface Post {
   title: string;
   excerpt: string;
   date: string;
-  formattedDate:string
+  formattedDate: string;
   category: string;
-  featured_image : string;
+  featured_image: string;
   slug: string;
 }
 
@@ -35,8 +34,6 @@ export interface Category {
   name: string;
   slug: string;
   count?: number;
-  featured_image : string;
+  featured_image: string;
   description?: string;
-
 }
-

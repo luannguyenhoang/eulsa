@@ -46,7 +46,6 @@ interface IPostPage {
   head: string;
 }
 
-
 const Page = (props: IPostPage) => {
   const { post } = props;
   const getTitleFromMeta = (head: string) => {
@@ -55,7 +54,7 @@ const Page = (props: IPostPage) => {
   };
   // Lấy nội dung từ thẻ meta
   const ogTitleContent = props.head ? getTitleFromMeta(props.head) : null;
-  
+
   return (
     <>
       {props.head && (

@@ -1,13 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export const CTAButton = ({
-  type,
-  link,
-}: {
-  type: string;
-  link: string;
-}) => {
+export const CTAButton = ({ type, link }: { type: string; link: string }) => {
   const isZalo = type === "zalo";
 
   return (

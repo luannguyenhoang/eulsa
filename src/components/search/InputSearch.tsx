@@ -25,7 +25,7 @@ export const InputSearch = ({ type }: { type: string }) => {
 
   return (
     <div className="z-50">
-      <form onSubmit={onSearch} className="flex items-center" >
+      <form onSubmit={onSearch} className="flex items-center">
         <input
           required
           className="bg-white border border-gray-400 px-4 py-2 text-black focus:outline-none w-full"

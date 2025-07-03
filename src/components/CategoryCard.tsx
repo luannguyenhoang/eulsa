@@ -8,15 +8,18 @@ interface CategoryCardProps {
   title: string;
   path: string;
   list_1: string;
-  list_2 :string;
-  list_3 :string
+  list_2: string;
+  list_3: string;
 }
 
 export const CategoryCard = ({
   category,
   image,
   title,
-  path, list_1,list_2,list_3
+  path,
+  list_1,
+  list_2,
+  list_3
 }: CategoryCardProps) => {
   return (
     <Link href={path} passHref>
@@ -35,7 +38,7 @@ export const CategoryCard = ({
             {title}
           </h3>
           <div className="space-y-2 pb-4">
-            <div>{list_1 ||"Yêu cầu: Tốt nghiệp THPT trở lên"}</div>
+            <div>{list_1 || "Yêu cầu: Tốt nghiệp THPT trở lên"}</div>
             <div>{list_2 || "Thời gian đào tạo: 2,5 - 4 năm"}</div>
             <div>{list_3 || "Cấp bằng: Cử nhân "}</div>
           </div>

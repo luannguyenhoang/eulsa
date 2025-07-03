@@ -2,24 +2,27 @@ import Link from "next/link";
 import { FormWrapper } from "../FormWrapper";
 import { HomeIcon } from "lucide-react";
 
-export const ContactSection = (list:any) => {
+export const ContactSection = (list: any) => {
   return (
     <>
-       <div
-      className="h-[300px] flex items-center justify-center relative bg-cover bg-center text-white"
-      style={{
-        backgroundImage: "url('/assets/Group-128.png')",
-      }}
-    >
-      <div className="absolute inset-0 bg-black opacity-70"></div>
-      <div className="relative flex flex-col items-center text-center z-10">
-        <h1 className="text-4xl font-bold uppercase">Liên hệ</h1>
-        <Link href="/" className="flex items-center space-x-2 mt-2 text-lg font-medium hover:opacity-80">
-          <HomeIcon className="w-6 h-6" />
-          <span>Trang chủ</span>
-        </Link>
+      <div
+        className="h-[300px] flex items-center justify-center relative bg-cover bg-center text-white"
+        style={{
+          backgroundImage: "url('/assets/Group-128.png')"
+        }}
+      >
+        <div className="absolute inset-0 bg-black opacity-70"></div>
+        <div className="relative flex flex-col items-center text-center z-10">
+          <h1 className="text-4xl font-bold uppercase">Liên hệ</h1>
+          <Link
+            href="/"
+            className="flex items-center space-x-2 mt-2 text-lg font-medium hover:opacity-80"
+          >
+            <HomeIcon className="w-6 h-6" />
+            <span>Trang chủ</span>
+          </Link>
+        </div>
       </div>
-    </div>
       <div className=" container max-w-7xl mx-auto flex flex-col lg:flex-row justify-center  py-20 ">
         <div className="w-full lg:w-1/2 ">
           <iframe
@@ -34,17 +37,33 @@ export const ContactSection = (list:any) => {
 
         <div className="w-full lg:w-1/2 pl-12 flex flex-col space-y-6">
           <div>
-            <h2 className="text-4xl font-bold text-blue-900"> {list?.list?.title ||".Địa chỉ"}</h2>
+            <h2 className="text-4xl font-bold text-blue-900">
+              {" "}
+              {list?.list?.title || ".Địa chỉ"}
+            </h2>
             <p className="mt-2 text-[25px] text-[#000]">
-              <strong>{list?.list?.label_1 ||".Văn phòng tiếp nhận hồ sơ"}</strong>
+              <strong>
+                {list?.list?.label_1 || ".Văn phòng tiếp nhận hồ sơ"}
+              </strong>
             </p>
             <ul className="mt-2 list-disc pl-4 text-gray-700">
-              <li><strong>{list?.list?.label_2 ||".Miền Bắc: 116 Trần Vỹ - Mai Dịch - Cầu Giấy - HN"}</strong> </li>
-              <li><strong>{list?.list?.label_3 ||".Miền Nam: 91 Ký Con - P. Nguyễn Thái Bình - Q.1 - Tp. HCM"}</strong> </li>
+              <li>
+                <strong>
+                  {list?.list?.label_2 ||
+                    ".Miền Bắc: 116 Trần Vỹ - Mai Dịch - Cầu Giấy - HN"}
+                </strong>{" "}
+              </li>
+              <li>
+                <strong>
+                  {list?.list?.label_3 ||
+                    ".Miền Nam: 91 Ký Con - P. Nguyễn Thái Bình - Q.1 - Tp. HCM"}
+                </strong>{" "}
+              </li>
             </ul>
           </div>
           <FormWrapper type="form-main" />
         </div>
-      </div></>
+      </div>
+    </>
   );
-}
+};

@@ -1,4 +1,3 @@
-
 import { About } from "@/components/about";
 import { fetchSeo } from "@/utils/seo";
 import { replaceSeoRM } from "@/utils/seoRankMath";
@@ -45,10 +44,9 @@ const Page = (props: any) => {
           </Head>
         </div>
       )}
-        <About />
+      <About />
     </>
   );
 };
 
 export default Page;
-

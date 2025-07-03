@@ -7,8 +7,8 @@ import Image from "next/image";
 import { toSlug } from "@/utils/toSlug";
 import { deleteSpace } from "@/utils/deleteSpace";
 
-const ListSearchPosts = dynamic(
-  () => import("./ListSearchPosts").then((mod) => mod.ListSearchPosts)
+const ListSearchPosts = dynamic(() =>
+  import("./ListSearchPosts").then((mod) => mod.ListSearchPosts)
 );
 
 export const Search = () => {

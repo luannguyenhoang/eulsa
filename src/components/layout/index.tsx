@@ -53,11 +53,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
     <>
       <Header />
       <main className="bg-white ">
-        {children}
+        <section className="w-full max-w-[1920px] mx-auto"> {children}</section>
         <div ref={ref} className="h-[1px]" />
-        {showCTA && (
-        <CTA />
-      )}
+        {showCTA && <CTA />}
       </main>
       <BackToTop />
       {inView && <Footer />}

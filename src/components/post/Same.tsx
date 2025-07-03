@@ -60,7 +60,7 @@ export const Same = () => {
                   key={index}
                   title={clean(post?.title?.rendered)}
                   desc={clean(post?.excerpt?.rendered)}
-                  image={post?.featured_image  || ""}
+                  image={post?.featured_image || ""}
                   path={`/${post?.slug}`}
                   showFooter={true}
                 />

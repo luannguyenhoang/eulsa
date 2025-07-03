@@ -1,4 +1,3 @@
-
 import { Lkg } from "@/components/lich-khai-giang";
 import { fetchSeo } from "@/utils/seo";
 import { replaceSeoRM } from "@/utils/seoRankMath";
@@ -38,7 +37,7 @@ const Page = (props: any) => {
   const ogTitleContent = props.head ? getTitleFromMeta(props.head) : null;
   return (
     <>
-     {props.head && (
+      {props.head && (
         <div>
           <Head>
             {ReactHtmlParser(replaceSeoRM(props.head))}
@@ -46,7 +45,7 @@ const Page = (props: any) => {
           </Head>
         </div>
       )}
-        <Lkg />
+      <Lkg />
     </>
   );
 };

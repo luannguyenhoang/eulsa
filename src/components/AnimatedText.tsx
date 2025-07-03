@@ -10,11 +10,11 @@ interface AnimatedTextProps {
 const AnimatedText: React.FC<AnimatedTextProps> = ({
   text,
   className = "",
-  highlightIndex,
+  highlightIndex
 }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.2
   });
 
   return (
@@ -28,9 +28,9 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
         visible: {
           opacity: 1,
           transition: {
-            staggerChildren: 0.3, // Hiệu ứng xuất hiện từng phần tử
-          },
-        },
+            staggerChildren: 0.3 // Hiệu ứng xuất hiện từng phần tử
+          }
+        }
       }}
     >
       {text.map((word, index) => (
@@ -43,7 +43,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
             opacity: 0,
             x: -30,
             y: 20,
-            rotate: -10, // Xoay nhẹ về một góc
+            rotate: -10 // Xoay nhẹ về một góc
           }}
           animate={
             inView
@@ -51,19 +51,19 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
                   opacity: 1,
                   x: 0,
                   y: 0,
-                  rotate: 0, // Quay về vị trí ban đầu
+                  rotate: 0 // Quay về vị trí ban đầu
                 }
               : {
                   opacity: 0,
                   x: -30,
                   y: 20,
-                  rotate: -10,
+                  rotate: -10
                 }
           }
           transition={{
             duration: 0.7,
             delay: index * 0.2,
-            ease: "easeOut", 
+            ease: "easeOut"
           }}
         >
           {word}

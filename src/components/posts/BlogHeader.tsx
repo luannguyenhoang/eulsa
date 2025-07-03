@@ -1,15 +1,12 @@
-import Link from "next/link"
-import { ChevronRight } from 'lucide-react'
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
-export const  BlogHeader =()=> {
+export const BlogHeader = () => {
   return (
     <div className="relative bg-[#F8F7FF] overflow-hidden">
       <div className="container max-w-7xl mx-auto px-4 py-16 relative z-10">
         <nav className="flex items-center gap-2 text-gray-500 mb-6">
-          <Link 
-            href="/" 
-            className="hover:text-[#5925DC] transition-colors"
-          >
+          <Link href="/" className="hover:text-[#5925DC] transition-colors">
             Home
           </Link>
           <ChevronRight className="w-4 h-4" />
@@ -27,11 +24,11 @@ export const  BlogHeader =()=> {
       </div>
 
       <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none">
-        <svg 
-          width="320" 
-          height="320" 
-          viewBox="0 0 320 320" 
-          fill="none" 
+        <svg
+          width="320"
+          height="320"
+          viewBox="0 0 320 320"
+          fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -62,6 +59,5 @@ export const  BlogHeader =()=> {
         </svg>
       </div>
     </div>
-  )
-}
-
+  );
+};

@@ -14,11 +14,11 @@ const CardBlogVert = dynamic(() =>
 );
 
 export const ListSearchPosts = ({
-  handleRouter,
+  handleRouter
 }: {
   handleRouter?: ({
     selected,
-    searchText,
+    searchText
   }: {
     selected: number;
     searchText: string;
@@ -48,10 +48,10 @@ export const ListSearchPosts = ({
         const res = await fetch(
           `/api/search/?type=news&page=${pages}&search=${toSlug({
             type: "signed",
-            input: keywords,
+            input: keywords
           })}`,
           {
-            next: { revalidate: 3 },
+            next: { revalidate: 3 }
           }
         );
         if (!res.ok) {

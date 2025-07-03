@@ -43,7 +43,7 @@ export const FormWrapper = ({
   }, []);
 
   if (isLoading) {
-    return <Loading  />;
+    return <Loading />;
   }
 
   if (!formData) {
@@ -52,12 +52,7 @@ export const FormWrapper = ({
 
   return (
     <>
- {title && (
-        <h2
-        >
-          {title}
-        </h2>
-      )}
+      {title && <h2>{title}</h2>}
       {formData.type === "form-getfly" && <FormGetFly {...formData} />}
       {formData.type === "form-sam" && <FormSam {...formData} />}
       {formData.type === "form-google" && (

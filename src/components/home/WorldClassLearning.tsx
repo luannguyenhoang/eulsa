@@ -10,7 +10,10 @@ export const WorldClassLearning = (section_5: any) => {
           {/* Hình ảnh */}
           <div className="flex justify-center">
             <Image
-              src={section_5?.section_5?.list_2?.image || "/assets/image_h2-768x513.jpg"}
+              src={
+                section_5?.section_5?.list_2?.image ||
+                "/assets/image_h2-768x513.jpg"
+              }
               width={600}
               height={600}
               alt="worldclasslearning"
@@ -24,7 +27,8 @@ export const WorldClassLearning = (section_5: any) => {
               {section_5?.section_5?.list_1?.title_1 || "Bằng tốt nghiệp"}
             </div>
             <div className="text-[12px] md:text-xl font-bold uppercase leading-snug">
-              {section_5?.section_5?.list_1?.title_2 || "Văn bằng có giá trị tương đương hệ chính quy"}
+              {section_5?.section_5?.list_1?.title_2 ||
+                "Văn bằng có giá trị tương đương hệ chính quy"}
             </div>
             <div className="text-lg md:text-xl whitespace-pre-line break-words">
               {section_5?.section_5?.list_1?.description ||

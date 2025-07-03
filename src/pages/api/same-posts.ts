@@ -27,13 +27,13 @@ export default async function handler(
       const postsWithFeaturedImages =
         relatedPosts?.length > 0
           ? relatedPosts?.map((relatedPost: any) => {
-              const featured_image  =
+              const featured_image =
                 relatedPost._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
                 null;
 
               return {
                 ...relatedPost,
-                featured_image 
+                featured_image
               };
             })
           : [];

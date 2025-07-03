@@ -20,15 +20,21 @@ export const Footer = () => {
     };
     getHomeContent();
   }, []);
-  const footer = homeContent?.acf.footer
+  const footer = homeContent?.acf.footer;
   const socialLinks = [
-    { icon: Facebook, href: footer?.list_1?.link_1 || "https://www.facebook.com/daihoctuxa.eulsa" },
-    { icon: FaTiktok, href: footer?.list_1?.link_2 || "https://www.tiktok.com/@ulsa.elearning" },
+    {
+      icon: Facebook,
+      href:
+        footer?.list_1?.link_1 || "https://www.facebook.com/daihoctuxa.eulsa"
+    },
+    {
+      icon: FaTiktok,
+      href: footer?.list_1?.link_2 || "https://www.tiktok.com/@ulsa.elearning"
+    },
     { icon: Youtube, href: footer?.list_1?.link_3 || "#" },
     { icon: Instagram, href: footer?.list_1?.link_4 || "#" },
-    { icon: BsThreads , href: footer?.list_1?.link_5 || "#" },
-    
-  ]
+    { icon: BsThreads, href: footer?.list_1?.link_5 || "#" }
+  ];
   return (
     <footer className="bg-[#1e56a0] text-white py-8">
       <div className="container max-w-7xl mx-auto px-4">
@@ -54,7 +60,8 @@ export const Footer = () => {
               {footer?.list_1?.title_1 || "CHƯƠNG TRÌNH ĐẠI HỌC TỪ XAs"}
             </p>
             <p className="!mt-[2px] text-[15px]">
-              {footer?.list_1?.title_2 || "Đào tạo cử nhân trực tuyến - Phù hợp với mọi đối tượng."}
+              {footer?.list_1?.title_2 ||
+                "Đào tạo cử nhân trực tuyến - Phù hợp với mọi đối tượng."}
             </p>
             <p className="!mt-[2px] text-[15px]  whitespace-pre-line">
               {footer?.list_1?.description || ""}
@@ -74,19 +81,34 @@ export const Footer = () => {
 
           <div className="space-y-4 text-lg w-full text-center md:text-left ">
             <nav className="grid gap-2">
-              <Link href="/" className="inline-block border-b border-white hover:underline w-auto pb-2">
+              <Link
+                href="/"
+                className="inline-block border-b border-white hover:underline w-auto pb-2"
+              >
                 Trang chủ
               </Link>
-              <Link href="/lich-khai-giang" className="inline-block border-b border-white hover:underline w-auto pb-2">
+              <Link
+                href="/lich-khai-giang"
+                className="inline-block border-b border-white hover:underline w-auto pb-2"
+              >
                 Lịch khai giảng
               </Link>
-              <Link href="/nganh-dao-tao" className="inline-block border-b border-white hover:underline w-auto pb-2">
+              <Link
+                href="/nganh-dao-tao"
+                className="inline-block border-b border-white hover:underline w-auto pb-2"
+              >
                 Ngành đào tạo
               </Link>
-              <Link href="/tin-tuc" className="inline-block border-b border-white hover:underline w-auto pb-2">
+              <Link
+                href="/tin-tuc"
+                className="inline-block border-b border-white hover:underline w-auto pb-2"
+              >
                 Tin tức
               </Link>
-              <Link href="/dang-ky" className="inline-block hover:underline w-auto pb-2">
+              <Link
+                href="/dang-ky"
+                className="inline-block hover:underline w-auto pb-2"
+              >
                 Đăng ký
               </Link>
             </nav>
@@ -94,16 +116,31 @@ export const Footer = () => {
 
           <div className="space-y-4 text-center md:text-left ">
             <div className="space-y-2 text-lg">
-              <h3 className="font-semibold text-lg border-b border-white pb-2">{footer?.list_2?.title || "Liên hệ"}</h3>
+              <h3 className="font-semibold text-lg border-b border-white pb-2">
+                {footer?.list_2?.title || "Liên hệ"}
+              </h3>
               <nav className="grid gap-2">
-                <Link href={footer?.list_2?.list_1?.link || "/"} className=" hover:underline w-auto pb-2">
+                <Link
+                  href={footer?.list_2?.list_1?.link || "/"}
+                  className=" hover:underline w-auto pb-2"
+                >
                   {footer?.list_2?.list_1?.title || "Facebook: abcxyc.com"}
                 </Link>
-                <Link href={footer?.list_2?.list_2?.link || "https://abcxyc.com"} className="text-white hover:underline">
+                <Link
+                  href={footer?.list_2?.list_2?.link || "https://abcxyc.com"}
+                  className="text-white hover:underline"
+                >
                   {footer?.list_2?.list_2?.title || "Website: abcxyc.com"}
                 </Link>
-                <Link href={footer?.list_2?.list_3?.link || "https://www.facebook.com/Thongtindaihoctuxatructuyen"} className="text-white hover:underline">
-                  {footer?.list_2?.list_3?.title || "Tham gia cộng đồng E-learning"}
+                <Link
+                  href={
+                    footer?.list_2?.list_3?.link ||
+                    "https://www.facebook.com/Thongtindaihoctuxatructuyen"
+                  }
+                  className="text-white hover:underline"
+                >
+                  {footer?.list_2?.list_3?.title ||
+                    "Tham gia cộng đồng E-learning"}
                 </Link>
               </nav>
             </div>
@@ -119,6 +156,5 @@ export const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
-
+  );
+};

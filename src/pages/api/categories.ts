@@ -21,7 +21,7 @@ export default async function handler(
   try {
     const response = await fetchAuth({
       url: `${api_url}/categories`,
-      revalidate: 1,
+      revalidate: 1
     });
     if (!response.ok) {
       throw new Error(`Posts fetch failed with status: ${response.statusText}`);
@@ -34,4 +34,3 @@ export default async function handler(
     res.status(500).json({ categories: [] });
   }
 }
-

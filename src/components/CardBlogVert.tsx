@@ -107,8 +107,9 @@ export const CardBlogVertA = ({
             />
             <div className="absolute bottom-0 left-0 bg-[#f37423]">
               <span
-                className={`text-sm p-1 whitespace-nowrap bg-${bgTag || "green-500"
-                  }`}
+                className={`text-sm p-1 whitespace-nowrap bg-${
+                  bgTag || "green-500"
+                }`}
               >
                 {tag}
               </span>

@@ -5,9 +5,16 @@ export default function Document() {
   return (
     <Html lang="vn">
       <Head>
-        <meta name="google-site-verification" content="XBEDSkrdjtlx6aHvRTTy14VU8X3C0NbmuETShBOlI74" />
+        <meta
+          name="google-site-verification"
+          content="XBEDSkrdjtlx6aHvRTTy14VU8X3C0NbmuETShBOlI74"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Plus+Jakarta+Sans:wght@200..800&family=Roboto:wght@100..900&display=swap"
           rel="stylesheet"

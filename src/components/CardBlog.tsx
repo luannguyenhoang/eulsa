@@ -140,9 +140,6 @@ export const CardRecentPosts = ({
   );
 };
 
-
-
-
 export const CardBlogtb = ({
   title,
   desc,
@@ -150,7 +147,7 @@ export const CardBlogtb = ({
   image,
   path,
   bgTag,
-  date,
+  date
 }: {
   title: string;
   desc: string;

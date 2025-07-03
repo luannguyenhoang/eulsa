@@ -3,30 +3,40 @@
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-
-
-export const FAQ = (section_1:any) => {
+export const FAQ = (section_1: any) => {
   const faqs = [
     {
-      question: section_1?.section_1?.list_a?.list_1?.title ||"Bằng Đại học từ xa có giá trị không?",
+      question:
+        section_1?.section_1?.list_a?.list_1?.title ||
+        "Bằng Đại học từ xa có giá trị không?",
       answer:
-      section_1?.section_1?.list_a?.list_1?.description || "Bằng đại học trực tuyến (hay bằng đại học từ xa) sẽ có giá trị tương đương so với bằng tương ứng với mỗi một chuyên ngành khi học trực tiếp trên trường.",
+        section_1?.section_1?.list_a?.list_1?.description ||
+        "Bằng đại học trực tuyến (hay bằng đại học từ xa) sẽ có giá trị tương đương so với bằng tương ứng với mỗi một chuyên ngành khi học trực tiếp trên trường."
     },
     {
-      question: section_1?.section_1?.list_a?.list_2?.title ||"Bằng Đại học từ xa có thể sử dụng để học lên bậc cao hơn không?",
+      question:
+        section_1?.section_1?.list_a?.list_2?.title ||
+        "Bằng Đại học từ xa có thể sử dụng để học lên bậc cao hơn không?",
       answer:
-      section_1?.section_1?.list_a?.list_2?.description || "Có, bạn có thể sử dụng bằng đại học từ xa để tiếp tục học lên cao hơn nếu đáp ứng các điều kiện của chương trình học.",
+        section_1?.section_1?.list_a?.list_2?.description ||
+        "Có, bạn có thể sử dụng bằng đại học từ xa để tiếp tục học lên cao hơn nếu đáp ứng các điều kiện của chương trình học."
     },
     {
-      question: section_1?.section_1?.list_a?.list_3?.title ||"Hình thức học đại học từ xa là như thế nào?",
+      question:
+        section_1?.section_1?.list_a?.list_3?.title ||
+        "Hình thức học đại học từ xa là như thế nào?",
       answer:
-        section_1?.section_1?.list_a?.list_3?.description ||"Học từ xa cho phép bạn học qua các nền tảng trực tuyến mà không cần đến trường, với giáo trình và hỗ trợ từ giảng viên.",
+        section_1?.section_1?.list_a?.list_3?.description ||
+        "Học từ xa cho phép bạn học qua các nền tảng trực tuyến mà không cần đến trường, với giáo trình và hỗ trợ từ giảng viên."
     },
     {
-      question: section_1?.section_1?.list_a?.list_4?.title ||"Đại học từ xa có cần phải đến trường thi không?",
+      question:
+        section_1?.section_1?.list_a?.list_4?.title ||
+        "Đại học từ xa có cần phải đến trường thi không?",
       answer:
-        section_1?.section_1?.list_a?.list_4?.description ||"Một số chương trình yêu cầu thi trực tiếp tại trường, nhưng phần lớn có thể thi trực tuyến hoặc tại các trung tâm được ủy quyền.",
-    },
+        section_1?.section_1?.list_a?.list_4?.description ||
+        "Một số chương trình yêu cầu thi trực tiếp tại trường, nhưng phần lớn có thể thi trực tuyến hoặc tại các trung tâm được ủy quyền."
+    }
   ];
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -46,7 +56,9 @@ export const FAQ = (section_1:any) => {
               onClick={() => toggleFAQ(index)}
               className="w-full flex justify-between items-center p-4 text-[#1e3a8a] font-semibold text-left text-3xl"
             >
-              <span>{index + 1}. {faq.question}</span>
+              <span>
+                {index + 1}. {faq.question}
+              </span>
               {openIndex === index ? (
                 <FaChevronUp className="text-[#1e3a8a]" />
               ) : (

@@ -62,7 +62,7 @@ export default function Page(props: IPostPage) {
         </Head>
       )}
 
-        <Home />
+      <Home />
     </>
   );
 }

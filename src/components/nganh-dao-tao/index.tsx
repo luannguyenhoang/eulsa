@@ -11,7 +11,7 @@ export const CategoryPage = () => {
     const getHomeContent = async () => {
       try {
         const res = await fetch(`/api/content-page/?type=trang-chu`, {
-          next: { revalidate: 3 },
+          next: { revalidate: 3 }
         });
         const data = await res.json();
         setHomeContent(data?.contentPage[0]);
@@ -26,7 +26,7 @@ export const CategoryPage = () => {
     const getPageContent = async () => {
       try {
         const res = await fetch(`/api/content-page/?type=nganh-dao-tao`, {
-          next: { revalidate: 3 },
+          next: { revalidate: 3 }
         });
         const data = await res.json();
         setPageContent(data?.contentPage[0]);
@@ -39,9 +39,11 @@ export const CategoryPage = () => {
   return (
     <>
       <AcademicPrograms section_1={pageContent?.acf} />
-      <div className="container max-w-7xl mx-auto pb-10">  <FeatureList section_3={homeContent?.acf?.section_3} />
+      <div className="container max-w-7xl mx-auto pb-10">
+        {" "}
+        <FeatureList section_3={homeContent?.acf?.section_3} />
       </div>
       <FAQ section_1={pageContent?.acf} />
     </>
-  )
-}
+  );
+};

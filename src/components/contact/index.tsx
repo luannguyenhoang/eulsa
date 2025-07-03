@@ -20,7 +20,7 @@ export const Contact = () => {
   }, []);
   return (
     <>
-      <ContactSection list={homeContent?.acf}  />
+      <ContactSection list={homeContent?.acf} />
     </>
   );
 };

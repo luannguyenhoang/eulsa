@@ -1,37 +1,37 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Mail } from "lucide-react"
-import { useEffect, useState } from "react"
-import { CTAButton } from "./Btn"
-import RegistrationPopup from "./RegistrationPopup"
+import { Button } from "@/components/ui/button";
+import { Mail } from "lucide-react";
+import { useEffect, useState } from "react";
+import { CTAButton } from "./Btn";
+import RegistrationPopup from "./RegistrationPopup";
 
 export const CTA = () => {
-  const [homeContent, setHomeContent] = useState<any>(null)
-  const [isOpen, setIsOpen] = useState(false)
+  const [homeContent, setHomeContent] = useState<any>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     const getHomeContent = async () => {
       try {
         const res = await fetch(`/api/content-page/?type=cta`, {
-          next: { revalidate: 3 },
-        })
+          next: { revalidate: 3 }
+        });
         if (!res.ok) {
           throw new Error(`Posts fetch failed with status: ${res.statusText}`);
         }
-        const data = await res.json()
-        console.log(data)
-        setHomeContent(data?.contentPage[0])
+        const data = await res.json();
+        console.log(data);
+        setHomeContent(data?.contentPage[0]);
       } catch (error) {
-        console.error("Error fetching home content:", error)
+        console.error("Error fetching home content:", error);
       }
-    }
-    getHomeContent()
-  }, [])
+    };
+    getHomeContent();
+  }, []);
 
   return (
     <div className="fixed bottom-0 right-[10px] translate-y-[-152%] w-10 z-50">
@@ -51,7 +51,10 @@ export const CTA = () => {
         </div>
         <CTAButton
           type="zalo"
-          link={homeContent?.acf?.link_zalo || "https://www.messenger.com/t/581176868409743"}
+          link={
+            homeContent?.acf?.link_zalo ||
+            "https://www.messenger.com/t/581176868409743"
+          }
         />
         <CTAButton
           type="phone"
@@ -59,6 +62,5 @@ export const CTA = () => {
         />
       </div>
     </div>
-  )
-}
-
+  );
+};

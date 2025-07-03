@@ -1,10 +1,5 @@
 import { disableScroll, enableScroll } from "@/utils/scrollmodal";
-import {
-  ReactNode,
-  createContext,
-  useContext,
-  useState
-} from "react";
+import { ReactNode, createContext, useContext, useState } from "react";
 import { FormWrapper } from "../FormWrapper";
 
 interface ModalContextProps {

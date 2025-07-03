@@ -119,7 +119,7 @@ export const Post = ({ post }: { post: any }) => {
         <div className="relative">
           <div className="space-y-12 lg:sticky lg:top-[170px] ">
             <FormWrapper type="form-main" />
-            {recentPosts.slice(0,5).map((post, index) => (
+            {recentPosts.slice(0, 5).map((post, index) => (
               <CardRecentPosts
                 key={index}
                 title={clean(post?.title) || ""}

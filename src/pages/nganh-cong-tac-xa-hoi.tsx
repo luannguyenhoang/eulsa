@@ -45,7 +45,7 @@ const Page = (props: any) => {
           </Head>
         </div>
       )}
-        <Nganh1 />
+      <Nganh1 />
     </>
   );
 };

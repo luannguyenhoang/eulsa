@@ -54,11 +54,7 @@ interface FormProps {
   divClass: string;
 }
 
-export const FormGetFly = ({
-  url,
-  divId,
-  divClass
-}: FormProps) => {
+export const FormGetFly = ({ url, divId, divClass }: FormProps) => {
   useEffect(() => {
     if (url && divId) {
       attachIframeForGetFly(url);

@@ -74,7 +74,9 @@ export const HeroSection = (banner: any) => {
         }}
       >
         {slides.map((slide, index) => (
-          <SwiperSlide key={slide.id || `slide-${index}`}> {/* Đảm bảo key duy nhất */}
+          <SwiperSlide key={slide.id || `slide-${index}`}>
+            {" "}
+            {/* Đảm bảo key duy nhất */}
             <div className="relative">
               <Image
                 src={slide.image}
@@ -88,7 +90,6 @@ export const HeroSection = (banner: any) => {
           </SwiperSlide>
         ))}
       </Swiper>
-
     </div>
   );
 };

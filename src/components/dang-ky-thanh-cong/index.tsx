@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { ExternalLink, Phone } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import { useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
-import { clean } from "../lib/sanitizeHtml"
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { ExternalLink, Phone } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { clean } from "../lib/sanitizeHtml";
 
 export default function DangkyTc() {
   const searchParams = useSearchParams();
@@ -41,7 +41,7 @@ export default function DangkyTc() {
     const getHomeContent = async () => {
       try {
         const res = await fetch(`/api/content-page/?type=cam-on`, {
-          next: { revalidate: 3 },
+          next: { revalidate: 3 }
         });
         if (!res.ok) {
           throw new Error(`Posts fetch failed with status: ${res.statusText}`);
@@ -62,11 +62,14 @@ export default function DangkyTc() {
         <div className="md:col-span-2">
           <div className="mb-8">
             <div className="flex items-center gap-4 mb-2">
-              <h1 className="text-2xl font-bold">{section?.title || "ĐĂNG KÝ THÀNH CÔNG.."}</h1>
+              <h1 className="text-2xl font-bold">
+                {section?.title || "ĐĂNG KÝ THÀNH CÔNG.."}
+              </h1>
             </div>
             <div className="mt-4 border-t pt-4">
               <p className="text-base whitespace-pre-line">
-                {section?.desc || `Cảm ơn bạn đã để lại thông tin. Cán bộ tư vấn Đại học Kinh Tế Quốc Dân sẽ liên hệ hỗ trợ bạn trong thời
+                {section?.desc ||
+                  `Cảm ơn bạn đã để lại thông tin. Cán bộ tư vấn Đại học Kinh Tế Quốc Dân sẽ liên hệ hỗ trợ bạn trong thời
                 gian sớm nhất ❤️ 🤩 Chúc bạn một ngày làm việc thật hiệu quả...`}
               </p>
             </div>
@@ -75,7 +78,10 @@ export default function DangkyTc() {
           <div className="mb-8">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-semibold">Có thể bạn quan tâm</h2>
-              <Link href="tin-tuc" className="text-red-500 hover:underline text-sm">
+              <Link
+                href="tin-tuc"
+                className="text-red-500 hover:underline text-sm"
+              >
                 Xem tất cả
               </Link>
             </div>
@@ -98,7 +104,8 @@ export default function DangkyTc() {
                     </div>
 
                     <div className="p-3">
-                      <h3 className="font-medium text-sm mb-2"
+                      <h3
+                        className="font-medium text-sm mb-2"
                         dangerouslySetInnerHTML={{
                           __html: clean(item.title)
                         }}
@@ -117,34 +124,55 @@ export default function DangkyTc() {
 
         <div className="md:col-span-1">
           <div className="mb-6">
-            <h2 className="text-xl font-semibold mb-4">{section?.group?.title || "Các ngành đào tạo"}</h2>
+            <h2 className="text-xl font-semibold mb-4">
+              {section?.group?.title || "Các ngành đào tạo"}
+            </h2>
             <div className="space-y-4">
               {[
-                { name: section?.group?.list_1?.tilte || "Ngành Công tác xã hội ", image: section?.group?.list_1?.image || "/assets/home4_img-1.png", path: section?.group?.list_1?.path || "nganh-luat-kinh-te" },
-                { name: section?.group?.list_2?.tilte || "Ngành Ngôn ngữ Anh ", image: section?.group?.list_2?.image || "/assets/home4_img-1.png", path: section?.group?.list_2?.path },
-                { name: section?.group?.list_3?.tilte || "Ngành Luật kinh tế", image: section?.group?.list_3?.image || "/assets/home4_img-1.png", path: section?.group?.list_3?.path },
-              ]
-                .map((department, index) => (
-                  <Link href={department.path || "#"} key={index}>
-                    <div className="relative rounded-md overflow-hidden my-4">
-                      <Image
-                        src={department.image || "/placeholder.svg"}
-                        alt={department.name}
-                        width={300}
-                        height={150}
-                        className="w-full h-[120px] object-cover"
-                      />
-                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                        <h3 className="text-white font-medium text-center px-4">{department.name}</h3>
-                      </div>
+                {
+                  name:
+                    section?.group?.list_1?.tilte || "Ngành Công tác xã hội ",
+                  image:
+                    section?.group?.list_1?.image || "/assets/home4_img-1.png",
+                  path: section?.group?.list_1?.path || "nganh-luat-kinh-te"
+                },
+                {
+                  name: section?.group?.list_2?.tilte || "Ngành Ngôn ngữ Anh ",
+                  image:
+                    section?.group?.list_2?.image || "/assets/home4_img-1.png",
+                  path: section?.group?.list_2?.path
+                },
+                {
+                  name: section?.group?.list_3?.tilte || "Ngành Luật kinh tế",
+                  image:
+                    section?.group?.list_3?.image || "/assets/home4_img-1.png",
+                  path: section?.group?.list_3?.path
+                }
+              ].map((department, index) => (
+                <Link href={department.path || "#"} key={index}>
+                  <div className="relative rounded-md overflow-hidden my-4">
+                    <Image
+                      src={department.image || "/placeholder.svg"}
+                      alt={department.name}
+                      width={300}
+                      height={150}
+                      className="w-full h-[120px] object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                      <h3 className="text-white font-medium text-center px-4">
+                        {department.name}
+                      </h3>
                     </div>
-                  </Link>
-                ))}
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
 
           <div className="mb-6">
-            <h2 className="text-xl font-semibold mb-4">{section?.group_1?.title || "Mạng xã hội"}</h2>
+            <h2 className="text-xl font-semibold mb-4">
+              {section?.group_1?.title || "Mạng xã hội"}
+            </h2>
             <Link href={section?.group_1?.link || "#"}>
               <Button variant="outline" className="w-full justify-between mb-4">
                 <div className="flex items-center">
@@ -176,9 +204,15 @@ export default function DangkyTc() {
             </Link>
 
             <div className="mt-6">
-              <h3 className="text-center mb-2">  {section?.group_1?.title_1 || "Liên hệ trực tiếp."}</h3>
+              <h3 className="text-center mb-2">
+                {" "}
+                {section?.group_1?.title_1 || "Liên hệ trực tiếp."}
+              </h3>
               <Link href={section?.group_2?.path || "tel:0917452118"}>
-                <Button variant="outline" className="w-full justify-center text-red-500">
+                <Button
+                  variant="outline"
+                  className="w-full justify-center text-red-500"
+                >
                   <Phone className="h-4 w-4 mr-2" />
                   {section?.group_2?.phone || " 0917452118"}
                 </Button>
@@ -188,6 +222,5 @@ export default function DangkyTc() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

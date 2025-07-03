@@ -6,7 +6,7 @@ import { clean } from "../lib/sanitizeHtml";
 const Section = ({
   title,
   posts,
-  type,
+  type
 }: {
   title: string;
   posts: any[];
@@ -24,31 +24,33 @@ const Section = ({
           : "flex flex-col gap-6"
       }
     >
-      {posts.slice(0, 6).map((post, index) =>
-        type === "blog" ? (
-          <CardBlog
-            key={index}
-            title={clean(post?.title) || ""}
-            image={post?.featured_image || "/assets/blog.jpeg"}
-            tag={"Tin tức "}
-            path={`/${post?.slug}`}
-            date={post?.date ? formatDate(post.date) : ""}
-            desc={""}
-            category={post?.category}
-          />
-        ) : (
-          <CardBlogtb
-            key={index}
-            title={clean(post?.title) || ""}
-            image={post?.featured_image || "/assets/blog.jpeg"}
-            tag={"Thông báo"}
-            path={`/${post?.slug}`}
-            date={post?.date ? formatDate(post.date) : ""}
-            desc={clean(post.excerpt) || ""}
-            bgTag={"#38a169"}
-          />
-        )
-      )}
+      {posts
+        .slice(0, 6)
+        .map((post, index) =>
+          type === "blog" ? (
+            <CardBlog
+              key={index}
+              title={clean(post?.title) || ""}
+              image={post?.featured_image || "/assets/blog.jpeg"}
+              tag={"Tin tức "}
+              path={`/${post?.slug}`}
+              date={post?.date ? formatDate(post.date) : ""}
+              desc={""}
+              category={post?.category}
+            />
+          ) : (
+            <CardBlogtb
+              key={index}
+              title={clean(post?.title) || ""}
+              image={post?.featured_image || "/assets/blog.jpeg"}
+              tag={"Thông báo"}
+              path={`/${post?.slug}`}
+              date={post?.date ? formatDate(post.date) : ""}
+              desc={clean(post.excerpt) || ""}
+              bgTag={"#38a169"}
+            />
+          )
+        )}
     </div>
   </div>
 );
@@ -58,9 +60,14 @@ export const LatestNews = () => {
   const [announcements, setAnnouncements] = useState<any[]>([]);
 
   useEffect(() => {
-    const fetchByCategory = async (categoryId: number, setter: (data: any[]) => void) => {
+    const fetchByCategory = async (
+      categoryId: number,
+      setter: (data: any[]) => void
+    ) => {
       try {
-        const res = await fetch(`/api/posts?page=1&per_page=6&category=${categoryId}`);
+        const res = await fetch(
+          `/api/posts?page=1&per_page=6&category=${categoryId}`
+        );
         if (!res.ok) throw new Error(`Failed to fetch category ${categoryId}`);
         const data = await res.json();
         setter(data.posts || []);

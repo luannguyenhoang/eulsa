@@ -26,7 +26,7 @@ interface Post {
   excerpt: {
     rendered: string;
   };
-  featured_image : string;
+  featured_image: string;
 }
 
 export const DraftPosts = () => {
@@ -66,7 +66,7 @@ export const DraftPosts = () => {
                 title={clean(post.title.rendered)}
                 date={post.date ? formatDate(post.date) : ""}
                 desc={clean(post.excerpt.rendered)}
-                image={post.featured_image  || ""}
+                image={post.featured_image || ""}
                 path={`/preview/${post.id}`}
                 preview
               />

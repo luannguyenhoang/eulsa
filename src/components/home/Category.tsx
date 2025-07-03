@@ -21,7 +21,8 @@ export const Category = (section_4: any) => {
               path={category?.path || "/nganh-01"}
               list_1={category?.list_1}
               list_2={category?.list_2}
-              list_3={category?.list_3} />
+              list_3={category?.list_3}
+            />
           ))}
         </div>
       </div>

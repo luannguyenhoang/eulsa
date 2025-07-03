@@ -43,10 +43,16 @@ export const TestimonialsSlider = (section_8: any) => {
       <div className="container max-w-7xl  mx-auto px-4 ">
         <div className="grid  gap-8 grid-cols-1 lg:grid-cols-1 border-2 border-blue-700 lg:p-12 p-4 rounded-3xl">
           <div className="text-blue-800 border-blue-700 text-center lg:text-left">
-            <div className="text-4xl font-bold  text-center"> {section_8?.section_8?.title_1 || "ĐÁNH GIÁ CỦA HỌC VIÊN"}</div>
-            <div className="mt-6 text-2xl text-center">{section_8?.section_8?.title_2 || "Học viên nói gì về hệ từ xa"}</div>
+            <div className="text-4xl font-bold  text-center">
+              {" "}
+              {section_8?.section_8?.title_1 || "ĐÁNH GIÁ CỦA HỌC VIÊN"}
+            </div>
+            <div className="mt-6 text-2xl text-center">
+              {section_8?.section_8?.title_2 || "Học viên nói gì về hệ từ xa"}
+            </div>
             <div className="mt-3 text-2xl font-bold text-center">
-              {section_8?.section_8?.title_3 || "Trường Đại học Lao động - Xã hội"}
+              {section_8?.section_8?.title_3 ||
+                "Trường Đại học Lao động - Xã hội"}
             </div>
           </div>
           <div>

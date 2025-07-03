@@ -13,7 +13,8 @@ export const Counter = (props: ICounter) => {
   const { start, end, suffix = "", prefix = "", text } = props;
 
   // Chuyển đổi số từ CMS, đảm bảo là Number
-  const numericEnd = typeof end === "string" ? parseFloat(end.replace(",", ".")) : end;
+  const numericEnd =
+    typeof end === "string" ? parseFloat(end.replace(",", ".")) : end;
 
   return (
     <CountUp
@@ -22,7 +23,7 @@ export const Counter = (props: ICounter) => {
       start={start}
       duration={2}
       suffix={prefix}
-       decimals={numericEnd % 1 !== 0 ? 1 : 0} 
+      decimals={numericEnd % 1 !== 0 ? 1 : 0}
     >
       {({ countUpRef }) => (
         <div className="flex flex-col items-center px-6">
@@ -44,7 +45,8 @@ export const FeaturesSection = (section_1: any) => {
     {
       start: 0,
       end: Number(section_1?.section_1?.list_1?.title?.replace(",", ".")) || 6,
-      suffix: section_1?.section_1?.list_1?.description || "Ngành đào tạo từ xa",
+      suffix:
+        section_1?.section_1?.list_1?.description || "Ngành đào tạo từ xa",
       text: ""
     },
     {
@@ -55,18 +57,21 @@ export const FeaturesSection = (section_1: any) => {
     },
     {
       start: 0,
-      end: Number(section_1?.section_1?.list_3?.title?.replace(",", ".")) || 11000,
-      suffix: section_1?.section_1?.list_3?.description || "Học viên đã tham gia",
+      end:
+        Number(section_1?.section_1?.list_3?.title?.replace(",", ".")) || 11000,
+      suffix:
+        section_1?.section_1?.list_3?.description || "Học viên đã tham gia",
       prefix: "+"
     },
     {
       start: 0,
-      end: Number(section_1?.section_1?.list_4?.title?.replace(",", ".")) || 99.9,
-      suffix: section_1?.section_1?.list_4?.description || "Học viên đã có bằng",
+      end:
+        Number(section_1?.section_1?.list_4?.title?.replace(",", ".")) || 99.9,
+      suffix:
+        section_1?.section_1?.list_4?.description || "Học viên đã có bằng",
       prefix: "%"
     }
   ];
-  
 
   return (
     <section className="py-10">
