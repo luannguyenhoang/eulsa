@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { BackToTop } from "../BackToTop";
 import { CTA } from "./components/Cta";
 import { Header } from "./components/DesktopMenu";
+import { TrackingSession } from "../TrackingSession";
 
 const Footer = dynamic(() =>
   import("@/components/layout/Footer").then((mod) => mod.Footer)
@@ -51,6 +52,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   }, [scrollPosition]);
   return (
     <>
+      <TrackingSession />
       <Header />
       <main className="bg-white ">
         <section className="w-full max-w-[1920px] mx-auto"> {children}</section>
