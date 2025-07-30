@@ -2,7 +2,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Loading } from "./Loading";
 import { FormGetFly } from "./FormGetFly";
 import { FormSam } from "./FormSam";
 import { FormGoogle } from "./FormGoogle";
@@ -17,8 +16,7 @@ interface FormData {
 
 export const FormWrapper = ({
   title,
-  color,
-  type = "form-main"
+  color
 }: {
   title?: string;
   color?: string;
@@ -29,21 +27,52 @@ export const FormWrapper = ({
 
   useEffect(() => {
     const fetchFormData = async () => {
+      const key = `form-data-form-main`;
+      const cacheExpireMs = 1000 * 60 * 60 * 6; // 6 tiếng
+
       try {
-        const res = await fetch(`/api/gen-form/?type=${type}`);
+        const cached = localStorage.getItem(key);
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (parsed.expires > Date.now()) {
+            setFormData(parsed.data);
+            setIsLoading(false);
+            return;
+          } else {
+            localStorage.removeItem(key); // Xoá cache hết hạn
+          }
+        }
+
+        // Gọi API nếu không có cache
+        const res = await fetch(`/api/gen-form/?type=form-main`);
+        if (!res.ok) {
+          throw new Error(`Form fetch failed: ${res.statusText}`);
+        }
         const data = await res.json();
         setFormData(data);
+
+        // Lưu vào localStorage
+        localStorage.setItem(
+          key,
+          JSON.stringify({
+            data,
+            expires: Date.now() + cacheExpireMs
+          })
+        );
       } catch (error) {
         console.error("Error fetching form data:", error);
       } finally {
         setIsLoading(false);
       }
     };
+
     fetchFormData();
   }, []);
 
   if (isLoading) {
-    return <Loading />;
+    return (
+      <div className="h-[38vh] w-full animate-pulse bg-gray-200 rounded-md" />
+    );
   }
 
   if (!formData) {
@@ -52,7 +81,9 @@ export const FormWrapper = ({
 
   return (
     <>
-      {title && <h2>{title}</h2>}
+      {title && (
+        <h2 className={`text-lg text-center text-[${color}] py-2`}>{title}</h2>
+      )}
       {formData.type === "form-getfly" && <FormGetFly {...formData} />}
       {formData.type === "form-sam" && <FormSam {...formData} />}
       {formData.type === "form-google" && (
