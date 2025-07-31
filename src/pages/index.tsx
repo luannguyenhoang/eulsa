@@ -8,40 +8,33 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
+interface IPostPage {
+  post: any;
+  head: string;
+}
 export const getServerSideProps: GetServerSideProps = async () => {
   const api_rm_url = process.env.API_RMS_URL || "";
   const api_url = `${api_rm_url}`;
-  const domain = process.env.NEXT_PUBLIC_DOMAIN || "";
 
   try {
     const res = await fetchSeo({ url: api_url, revalidate: 3600 });
-    if (!res.ok) {
-      throw new Error(`Posts fetch failed with status: ${res.statusText}`);
-    }
     const head = await res.json();
-    const resForm = await fetch(`${domain}/api/gen-form/?type=form-main`);
-    if (!resForm.ok) {
-      throw new Error(`Posts fetch failed with status: ${res.statusText}`);
-    }
-    const form = await resForm.json();
     return {
       props: {
-        head: head?.head || null,
-        form: form
+        head: head?.head || null
       }
     };
   } catch (error) {
     return {
       props: {
-        head: null,
-        form: null
+        head: null
       }
     };
   }
 };
 
-export default function Page(props: any) {
-  const { head } = props;
+export default function Page(props: IPostPage) {
+  const { post, head } = props;
 
   // Function to extract title from meta
   const getTitleFromMeta = (head: string) => {
@@ -59,36 +52,7 @@ export default function Page(props: any) {
       setOgTitleContent(title);
     }
   }, [head]);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
 
-    const key = "form-data-form-main";
-    const expires = 1000 * 60 * 60 * 6; // 6 tiếng
-
-    try {
-      const cached = localStorage.getItem(key);
-      let shouldSet = true;
-
-      if (cached) {
-        const parsed = JSON.parse(cached);
-        if (parsed.expires > Date.now()) {
-          shouldSet = false;
-        }
-      }
-
-      if (shouldSet && props.form) {
-        localStorage.setItem(
-          key,
-          JSON.stringify({
-            data: props.form,
-            expires: Date.now() + expires
-          })
-        );
-      }
-    } catch (err) {
-      console.error("Failed to set form data in localStorage:", err);
-    }
-  }, [props.form]);
   return (
     <>
       {head && (
@@ -97,6 +61,7 @@ export default function Page(props: any) {
           <title>{ogTitleContent}</title>
         </Head>
       )}
+
       <Home />
     </>
   );
