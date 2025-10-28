@@ -64,18 +64,18 @@ export const Header = () => {
           </div>
           <div className="flex items-center space-x-6 pl-6">
             <a
-              href={header?.list_1?.link || "tel:090.0000.000"}
+              href={header?.list_1?.link || "tel:0942214466"}
               className="flex items-center space-x-2 hover:text-blue-200"
             >
               <Phone className="h-4 w-4" />
-              <span>{header?.list_1?.phone || "090.0000.000"}</span>
+              <span>{header?.list_1?.phone || "094.221.4466"}</span>
             </a>
             <a
-              href={header?.list_2?.link || "mailto:abcxyz@gmail.com"}
+              href={header?.list_2?.link || "mailto:dttx@ulsa.edu.vn"}
               className="flex items-center space-x-2 hover:text-blue-200"
             >
               <Mail className="h-4 w-4" />
-              <span>{header?.list_2?.phone || "abcxyz@gmail.com"}</span>
+              <span>{header?.list_2?.phone || "dttx@ulsa.edu.vn"}</span>
             </a>
           </div>
         </div>
