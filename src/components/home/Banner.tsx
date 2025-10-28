@@ -12,7 +12,7 @@ export const HeroSection = (banner: any) => {
   const slides = [
     {
       id: "1",
-      image: banner?.banner?.image_1 || "/assets/image_h2-768x513.jpg"
+      image: banner?.banner?.image_1 || "/assets/image01.png"
     },
     {
       id: "2",
@@ -72,18 +72,17 @@ export const HeroSection = (banner: any) => {
           prevEl: "#prev-btn",
           nextEl: "#next-btn"
         }}
+        loop={true}
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={slide.id || `slide-${index}`}>
-            {" "}
-            {/* Đảm bảo key duy nhất */}
             <div className="relative">
               <Image
                 src={slide.image}
                 alt="Educational content"
                 width={2356}
                 height={1450}
-                className="w-full h-auto max-h-[550px] slide-right object-cover"
+                className="w-full h-auto max-h-[620px] slide-right object-cover"
                 priority
               />
             </div>

@@ -3,10 +3,10 @@
 import { CardBlog, CardBlogs } from "@/components/CardBlog";
 import { CategoryNavigation } from "@/components/posts/CategoryNavigation";
 import { formatDate } from "@/utils/date";
-import { clean } from "../lib/sanitizeHtml";
 import { useSearchParams } from "next/navigation";
-import ReactPaginate from "react-paginate";
 import { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
+import { clean } from "../lib/sanitizeHtml";
 import { SkeletonCardBlog } from "../SkeletonCardBlog";
 
 export const TinTuc = () => {
@@ -21,6 +21,7 @@ export const TinTuc = () => {
 
   useEffect(() => {
     setCurrentCategory(searchParams.get("category"));
+    setCurrentPage(0); // Reset to first page when category changes
   }, [searchParams]);
 
   useEffect(() => {
@@ -120,6 +121,7 @@ export const TinTuc = () => {
             marginPagesDisplayed={2}
             pageRangeDisplayed={3}
             onPageChange={handlePageClick}
+            forcePage={currentPage}
             containerClassName="flex space-x-2"
             activeClassName="bg-[#1e56a0] text-white px-3 py-1 rounded"
             pageClassName="px-3 py-1 border border-gray-300 rounded hover:bg-gray-200"
