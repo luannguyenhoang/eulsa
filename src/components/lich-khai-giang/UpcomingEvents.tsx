@@ -1,7 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { FormWrapper } from "../FormWrapper";
-import { useState, useEffect } from "react";
 
 // CountdownTimer Component
 export const CountdownTimer = ({
@@ -13,6 +13,10 @@ export const CountdownTimer = ({
 }) => {
   const target = new Date(targetDate);
   const [mounted, setMounted] = useState(false);
+
+  // Kiểm tra xem date có hợp lệ không
+  const isValidDate =
+    !isNaN(target.getTime()) && targetDate !== "00-00-00" && targetDate !== "";
 
   const calculateTimeLeft = () => {
     const now = new Date();
@@ -31,16 +35,26 @@ export const CountdownTimer = ({
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
-    setMounted(true); // Chặn render server
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [targetDate]);
+    setMounted(true);
+    if (isValidDate) {
+      const timer = setInterval(() => {
+        setTimeLeft(calculateTimeLeft());
+      }, 1000);
+      return () => clearInterval(timer);
+    }
+  }, [targetDate, isValidDate]);
 
   if (!mounted) {
-    // Không render gì trên server để tránh mismatch
     return null;
+  }
+
+  if (!isValidDate) {
+    return (
+      <div className="bg-[#1657A7] p-6 rounded-lg text-white mb-4 text-center">
+        <h3 className="text-red-500 text-2xl font-bold mb-4">{title}</h3>
+        <p className="text-xl">Đang cập nhật</p>
+      </div>
+    );
   }
 
   return (
